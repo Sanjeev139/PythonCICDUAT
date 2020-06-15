@@ -10,7 +10,7 @@ from kount.ris_validator import RisValidator
 from kount.ris_validator import RisValidationException
 from kount.version import VERSION
 
-from json_test import example_data, example_data_products
+from .json_test import example_data, example_data_products
 
 __author__ = config.SDKConfig.SDK_AUTHOR
 __version__ = VERSION
