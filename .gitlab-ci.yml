@@ -6,17 +6,17 @@ stages:
   - test
   - deploy
 
-before_script:
-   # - apk update && apk add gcc python3-dev musl-dev libffi-dev
-   - pip install --upgrade pip
-   - pip install twine
-   - python setup.py sdist bdist_wheel
-
 test_job:
   stage: test
   script:
     - echo "Running tests"
     - python -m unittest discover -s "./tests/"
+
+before_script:
+   # - apk update && apk add gcc python3-dev musl-dev libffi-dev
+   - pip install --upgrade pip
+   - pip install twine
+   - python setup.py sdist bdist_wheel
 
 
 deploy_production:
