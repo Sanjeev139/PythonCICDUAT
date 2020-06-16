@@ -2,7 +2,7 @@ import os
 import pytest
 
 from kount import config
-from kount.setting import TEST_API_KEY, TEST_API_URL, TEST_MERCHANT_ID
+from .setting import TEST_API_KEY, TEST_API_URL, TEST_MERCHANT_ID
 
 TEST_API_URL = TEST_API_URL
 
@@ -21,6 +21,7 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope='session', autouse=True)
 def conf_key(request):
+    print(config.SDKConfig._CONFIGURATION_KEY)
     try:
         config.SDKConfig.setup(request.config.getoption('--conf-key'))
     except ValueError as e:
