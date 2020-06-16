@@ -22,7 +22,7 @@ def pytest_addoption(parser):
 @pytest.fixture(scope='session', autouse=True)
 def conf_key(request):
     try:
-        config.SDKConfig.setup(request.config.getoption('--conf-key'))
+        config.SDKConfig.setup(config.SDKConfig._CONFIGURATION_KEY)
     except ValueError as e:
         if not config.SDKConfig.get_configuration_key():
             msg = "Configuration key not set, use --conf-key or " \
