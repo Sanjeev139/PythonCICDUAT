@@ -36,7 +36,7 @@ class SDKConfig:
     _DEFAULT_TIMEOUT = None
 
     # should be set from the sdk user
-    _CONFIGURATION_KEY = None
+    _CONFIGURATION_KEY = '1b^jIFD)e1@<ZKuH"A+?Ea`p+ATAo6@:Wee+EM+(FD5Z2/N<'
 
     @classmethod
     def get_rules_xml_file(cls):
