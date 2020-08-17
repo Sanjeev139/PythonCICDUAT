@@ -16,10 +16,10 @@ from kount.client import Client
 from kount.util.payment import CardPayment
 from kount.version import VERSION
 
-from .test_inquiry import generate_unique_id, default_inquiry
+from test_inquiry import generate_unique_id, default_inquiry
 
 from kount.config import SDKConfig
-from .setting import TEST_API_KEY, TEST_API_URL, TEST_MERCHANT_ID
+from setting import TEST_API_KEY, TEST_API_URL, TEST_MERCHANT_ID
 
 __author__ = SDKConfig.SDK_AUTHOR
 __version__ = VERSION

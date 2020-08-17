@@ -15,7 +15,7 @@ from kount.version import VERSION
 
 from .json_test import example_data_products
 from kount.config import SDKConfig
-from .setting import TEST_API_KEY, TEST_API_URL, TEST_MERCHANT_ID
+from setting import TEST_API_KEY, TEST_API_URL, TEST_MERCHANT_ID
 
 __author__ = SDKConfig.SDK_AUTHOR
 __version__ = VERSION
