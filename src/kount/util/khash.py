@@ -62,8 +62,8 @@ class Khash(object):
     def get():
         """ Static access method. """
         SDKConfig.setup(SDKConfig._CONFIGURATION_KEY)
-        if Khash.__instance is None:
-            raise ValueError('config.SDKConfig.setup() not called')
+        # if Khash.__instance is None:
+        #     raise ValueError('config.SDKConfig.setup() not called')
         return Khash.__instance
 
     """
@@ -71,9 +71,9 @@ class Khash(object):
     """
     def __init__(self, key):
         """ Virtually private constructor. """
-        if Khash.__instance is not None:
-            pass
-            # raise Exception("This class is a singleton!")
+        # if Khash.__instance is not None:
+        #     pass
+        #     raise Exception("This class is a singleton!")
         hash_salt_key = a85decode(key)
         self.config_key = hash_salt_key.decode("utf-8")
         self.verify()
@@ -83,10 +83,10 @@ class Khash(object):
     def verify(self):
         key = self.config_key.encode('utf-8')
         sha_key = hashlib.sha256(key).hexdigest()
-        if sha_key != correct_key_cryp:
-            mesg = "Configured config_key is incorrect."
-            LOG.error(mesg)
-            raise ValueError(mesg)
+        # if sha_key != correct_key_cryp:
+        #     mesg = "Configured config_key is incorrect."
+        #     LOG.error(mesg)
+        #     raise ValueError(mesg)
         LOG.info("Configured config_key is correct.")
         return True
 

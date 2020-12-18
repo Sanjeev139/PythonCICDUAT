@@ -18,7 +18,7 @@ __status__ = "Development"
 
 class SDKConfig:
     # field validation rules
-    _XML_FILENAME = os.path.join(resources.__path__[0], 'validate.xml')
+    # _XML_FILENAME = os.path.join(resources.__path__[0], 'validate.xml')
 
     SDK_VERSION = "0700"
     
@@ -38,9 +38,9 @@ class SDKConfig:
     # should be set from the sdk user
     _CONFIGURATION_KEY = None
 
-    @classmethod
-    def get_rules_xml_file(cls):
-        return cls._XML_FILENAME
+    # @classmethod
+    # def get_rules_xml_file(cls):
+    #     return cls._XML_FILENAME
 
     @classmethod
     def get_default_timeout(cls):
@@ -74,8 +74,8 @@ class SDKConfig:
         cls._CONFIGURATION_KEY = config_key
         cls._DEFAULT_TIMEOUT = default_timeout
         cls._RAISE_ERRORS = raise_errors
-        if xml_rules_file_name:
-            cls._XML_FILENAME = xml_rules_file_name
+        # if xml_rules_file_name:
+        #     cls._XML_FILENAME = xml_rules_file_name
 
         from .util import khash
         k = khash.Khash(config_key)

@@ -69,10 +69,11 @@ class Inquiry(Request):
         """Set the gender. Either M(ale) of F(emale).
             Acceptable values: GENDER
             Arg: - gender"""
-        if Gender.is_valid(gender):
-            self.set_param("GENDER", gender)
-        else:
-            raise ValueError('INVALID GENDER = %s' % gender)
+        # if Gender.is_valid(gender):
+        #     self.set_param("GENDER", gender)
+        # else:
+        #     raise ValueError('INVALID GENDER = %s' % gender)
+        self.set_param("GENDER", gender)
 
     def set_user_defined_field(self, label, value):
         """Set a user defined field.
@@ -86,10 +87,12 @@ class Inquiry(Request):
             Acceptable values are: InquiryMode
             Arg: mode - Mode of the request
         """
-        if InquiryMode.is_valid(mode):
+        """if InquiryMode.is_valid(mode):
             self.set_param("MODE", mode)
         else:
             raise ValueError('INVALID INQUIRY MODE = %s' % mode)
+        """
+        self.set_param("MODE", mode)
 
     def set_currency(self, currency):
         """Set the three character ISO-4217 currency code.
@@ -243,16 +246,16 @@ class Inquiry(Request):
             Arg: cart - Cart items in the shopping cart, type Cart
         """
         for index, item in enumerate(cart):
-            if not isinstance(item, CartItem):
-                raise ValueError('invalid CartItem: %s' % item)
-            LOG.debug("PROD_TYPE[%i] = %s, PROD_ITEM[%i] = %s, "
-                      "PROD_DESC[%i] = %s, PROD_QUANT[%i] = %s, "
-                      "PROD_PRICE[%i] = %s",
-                      index, item.product_type,
-                      index, item.item_name,
-                      index, item.description,
-                      index, item.quantity,
-                      index, item.price)
+            # if not isinstance(item, CartItem):
+            #     raise ValueError('invalid CartItem: %s' % item)
+            # LOG.debug("PROD_TYPE[%i] = %s, PROD_ITEM[%i] = %s, "
+            #           "PROD_DESC[%i] = %s, PROD_QUANT[%i] = %s, "
+            #           "PROD_PRICE[%i] = %s",
+            #           index, item.product_type,
+            #           index, item.item_name,
+            #           index, item.description,
+            #           index, item.quantity,
+            #           index, item.price)
             self.params["PROD_TYPE[%i]" % index] = item.product_type
             self.params["PROD_ITEM[%i]" % index] = item.item_name
             self.params["PROD_DESC[%i]" % index] = item.description
